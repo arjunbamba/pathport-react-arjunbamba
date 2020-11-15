@@ -1,25 +1,232 @@
 {
-  "outdoors": [
-      {
-
-      },
-      {
-
-      },
-      {
-
-      }
+  "1": [
+    {
+      "id": 1,
+      "category_id": "1",
+      "recommendation": "The Japanese Garden",
+      "category": "Outdoors",
+      "rating": "Good"
+    },
+    {
+      "id": 2,
+      "category_id": "1",
+      "recommendation": "Hollywood Sign",
+      "category": "Outdoors",
+      "rating": "Good"
+    },
+    {
+      "id": 3,
+      "category_id": "1",
+      "recommendation": "Topanga State Park",
+      "category": "Outdoors",
+      "rating": "Good"
+    },
+    {
+      "id": 4,
+      "category_id": "1",
+      "recommendation": "Griffith Observatory",
+      "category": "Outdoors",
+      "rating": "Good"
+    },
+    {
+      "id": 5,
+      "category_id": "1",
+      "recommendation": "Runyon Canyon Park",
+      "category": "Outdoors",
+      "rating": "Good"
+    },
+    {
+      "id": 6,
+      "category_id": "1",
+      "recommendation": "Grand Park",
+      "category": "Outdoors",
+      "rating": "Good"
+    },
+    {
+      "id": 7,
+      "category_id": "1",
+      "recommendation": "Venice Canals",
+      "category": "Outdoors",
+      "rating": "Good"
+    },
+    {
+      "id": 8,
+      "category_id": "1",
+      "recommendation": "Los Angeles Zoo",
+      "category": "Outdoors",
+      "rating": "Okay"
+    },
+    {
+      "id": 9,
+      "category_id": "1",
+      "recommendation": "The Huntington Library, Art Collections, and Botanical",
+      "category": "Outdoors",
+      "rating": "Okay"
+    },
+    {
+      "id": 10,
+      "category_id": "1",
+      "recommendation": "Angeles National Forest",
+      "category": "Outdoors",
+      "rating": "Okay"
+    },
+    {
+      "id": 11,
+      "category_id": "1",
+      "recommendation": "Elysian Park",
+      "category": "Outdoors",
+      "rating": "Okay"
+    },
+    {
+      "id": 12,
+      "category_id": "1",
+      "recommendation": "Santa Monica Mountains National Recreation Area",
+      "category": "Outdoors",
+      "rating": "Okay"
+    },
+    {
+      "id": 13,
+      "category_id": "1",
+      "recommendation": "Huntington Desert Garden",
+      "category": "Outdoors",
+      "rating": "Okay"
+    }
   ],
-  "arts": [
-      {
-
-      },
-      {
-
-      },
-      {
-
-      }
+  "2": [
+    {
+      "id": 1,
+      "category_id": "2",
+      "recommendation": "Los Angeles County Museum of Art",
+      "category": "Arts & Culture",
+      "rating": "Good"
+    },
+    {
+      "id": 2,
+      "category_id": "2",
+      "recommendation": "Dolby Theatre",
+      "category": "Arts & Culture",
+      "rating": "Good"
+    },
+    {
+      "id": 3,
+      "category_id": "2",
+      "recommendation": "TCL Chinese Theatre",
+      "category": "Arts & Culture",
+      "rating": "Good"
+    },
+    {
+      "id": 4,
+      "category_id": "2",
+      "recommendation": "The Getty",
+      "category": "Arts & Culture",
+      "rating": "Good"
+    },
+    {
+      "id": 5,
+      "category_id": "2",
+      "recommendation": "The Broad",
+      "category": "Arts & Culture",
+      "rating": "Good"
+    },
+    {
+      "id": 6,
+      "category_id": "2",
+      "recommendation": "Hollywood Bowl",
+      "category": "Arts & Culture",
+      "rating": "Good"
+    },
+    {
+      "id": 7,
+      "category_id": "2",
+      "recommendation": "Walt Disney Concert Hall",
+      "category": "Arts & Culture",
+      "rating": "Good"
+    },
+    {
+      "id": 8,
+      "category_id": "2",
+      "recommendation": "The Getty Villa",
+      "category": "Arts & Culture",
+      "rating": "Good"
+    },
+    {
+      "id": 9,
+      "category_id": "2",
+      "recommendation": "Hollywood Walk Of Fame",
+      "category": "Arts & Culture",
+      "rating": "Okay"
+    },
+    {
+      "id": 10,
+      "category_id": "2",
+      "recommendation": "The Huntington Library, Art Collections, and Botanical Gardens",
+      "category": "Arts & Culture",
+      "rating": "Okay"
+    },
+    {
+      "id": 11,
+      "category_id": "2",
+      "recommendation": "Hollyhock House",
+      "category": "Arts & Culture",
+      "rating": "Okay"
+    },
+    {
+      "id": 12,
+      "category_id": "2",
+      "recommendation": "Norton Simon Museum",
+      "category": "Arts & Culture",
+      "rating": "Okay"
+    }
+  ],
+  "3": [
+    {
+      "id": 1,
+      "category_id": "3",
+      "recommendation": "TCL Chinese Theatre",
+      "category": "Music",
+      "rating": "Good"
+    },
+    {
+      "id": 2,
+      "category_id": "3",
+      "recommendation": "Dolby Theatre",
+      "category": "Music",
+      "rating": "Good"
+    },
+    {
+      "id": 3,
+      "category_id": "3",
+      "recommendation": "Walt Disney Concert Hall",
+      "category": "Music",
+      "rating": "Good"
+    },
+    {
+      "id": 4,
+      "category_id": "3",
+      "recommendation": "Hollywood Bowl",
+      "category": "Music",
+      "rating": "Good"
+    },
+    {
+      "id": 5,
+      "category_id": "3",
+      "recommendation": "The Greek Theatre",
+      "category": "Music",
+      "rating": "Okay"
+    },
+    {
+      "id": 6,
+      "category_id": "3",
+      "recommendation": "GRAMMY Museum L.A. Live",
+      "category": "Music",
+      "rating": "Good"
+    },
+    {
+      "id": 7,
+      "category_id": "3",
+      "recommendation": "The Hollywood Museum",
+      "category": "Music",
+      "rating": "Good"
+    }
   ]
-
 }

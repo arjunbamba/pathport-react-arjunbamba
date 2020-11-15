@@ -2,9 +2,9 @@
 .my_heading {
   padding-top: 75px;
   display: flex;
-  text-align: center; 
+  text-align: center;
 }
-.browseText {
+p {
   font-family: 'Source Code Pro', monospace;  
   font-size: 28pt;
   color: lightgray;
@@ -14,9 +14,7 @@
   margin-top: 150px;
 }
 
-body {
-  background-color: #121212;  
-}
-form {
+body{
+  background-color: #121212;
   color: white;
 }

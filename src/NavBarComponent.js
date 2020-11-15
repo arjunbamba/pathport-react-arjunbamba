@@ -97,7 +97,7 @@ export default function NavBarComponent() {
                       style={{backgroundColor: link7Color.backgroundColor, color: link7Color.color, transition:'all 0.5s ease'}}
                       href="/#tab-food"> 
                         Adventure at Heart
-                      </a>
+                      </a> 
                     </li> 
 
                     <li>

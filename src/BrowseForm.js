@@ -5,17 +5,19 @@ import BrowseStyle from './BrowseStyle.module.css';
 export default function BrowseForm({onSubmit}) {
 
     const [formData, setFormData] = useState("1")
+    const history = useHistory();
 
     function handleSubmit(event) {
-        event.preventDefault();
-        console.log("before submitting is " + formData)
         onSubmit(formData);
+        // setTimeout(() => {
+        // console.log('This will run after 2 seconds!')
+        // }, 2000);
+        history.push("/browse_results");
     }
 
     function handleClick(event) {
-        console.log(event.target.value);
         setFormData(event.target.value);
-    }
+    } 
 
     return (
         <>
@@ -48,6 +50,7 @@ export default function BrowseForm({onSubmit}) {
                       <input class="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox2" value="3" />Music
                     </label>
                   </div>
+                  {/*                   
                   <div class="form-check form-check-inline">
                     <label class="form-check-label">
                       <input class="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox4" value="4" />Museums
@@ -82,14 +85,8 @@ export default function BrowseForm({onSubmit}) {
                     <label class="form-check-label">
                       <input class="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox10" value="10" />Local Favorites
                     </label>
-                  </div>
-                </div>
-              </div> 
-
-              <div class="form-group row">
-                <label for="user-id" class="col-sm-3 col-form-label text-sm-right">Submitted By (optional):</label>
-                <div class="col-sm-7">
-                  <input type="text" class="form-control" id="user-id" name="user" placeholder="Username" />
+                  </div> 
+                  */}
                 </div>
               </div> 
 

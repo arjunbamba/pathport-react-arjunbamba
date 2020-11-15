@@ -1,24 +1,128 @@
 import React, {useState, useEffect} from 'react';
 
+// *****  THIRD PARTY REACT LIBRARY  *****/
+// ***** SOURCE: https://medium.com/@adolf.schmuck/how-to-customize-the-title-of-any-page-in-react-45ef14d2a695  *****/
+import { Helmet } from 'react-helmet';
+
 import HomeStyle from './HomeStyle.module.css';
 import AboutUsStyle from './AboutUsStyle.module.css';
+import ResultsStyle from './ResultsStyle.module.css';
 
-import NavBarComponent from "./NavBarComponent";
+// ***** REUSABLE CUSTOMIZED, GENERIC COMPONENT *****/
+import NavBarComponent from "./NavBarComponent"; 
+
 import BrowseForm from "./BrowseForm";
 import PageNotFound from "./PageNotFound";
+import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
 
 import { BrowserRouter as Router, Switch, Route, Link, NavLink, Redirect, useHistory } from "react-router-dom";
 
+import { fetchRecs, deleteRec, editRec } from "./api";
+
 function App() {
-  const history = useHistory();
+  // const history = useHistory();
 
   const [link9Color, setLink9Color] = useState({backgroundColor: "black", color: "white"});
   const [link10Color, setLink10Color] = useState({backgroundColor: "black", color: "white"});
 
+  const [results, setResults] = useState([]);
 
-  function handleSubmit(formData) {
-    console.log(formData);
-    history.push("/");
+  const [saved_id, set_saved_id] = useState("");
+  const [saved_category_id, set_saved_category_id] = useState("");
+  const [saved_name, set_saved_name] = useState("");
+  const [saved_category, set_saved_category] = useState("");
+  const [saved_rating, set_saved_rating] = useState("");
+
+  // my custom errors for blanks
+  const [NameError, setNameError] = useState("");
+  const [CategoryError, setCategoryError] = useState("");
+  const [RatingError, setRatingError] = useState("");
+
+  const [bad_edit_status, setBadEdit_Status] = useState("");
+  const [good_edit_status, setGoodEdit_Status] = useState("");
+
+  function handleBrowseSubmit(formData) {
+    return fetchRecs(formData).then((recs) => {
+      console.log(recs);
+      setResults(recs);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
+  function handleDelete(category_id, DeleteID) {
+    deleteRec(category_id, DeleteID).then((response) => {
+      console.log(response);
+
+      //refresh old results
+      const filteredRecs = results.filter((result) => {
+        return result.id !== DeleteID;
+      });
+      setResults(filteredRecs);
+    });
+  }
+
+  function handleUpdateSubmit(event) {
+    event.preventDefault();
+
+    let submission_name = saved_name;
+    let submission_category = saved_category;
+    let submission_rating = saved_rating;
+
+    if (submission_name !== "" && submission_category !== "" && submission_rating !== "") {
+      let updated_Object = {
+        id: saved_id,
+        category_id: saved_category_id,
+        recommendation: saved_name,
+        category: saved_category,
+        rating: saved_rating
+      };
+
+      // resetting my errors for next timee
+      setNameError("");
+      setCategoryError("");
+      setRatingError("");
+      setBadEdit_Status("");
+
+      // make api call to save goal inputs
+      editRec(updated_Object, saved_category_id, saved_id).then((response) => {
+        console.log(response);
+        setGoodEdit_Status("SUCCESSFULLY UPDATED.");
+      });
+    }
+    else {
+      if (submission_name === "") {
+        setNameError("Please enter a recommendation.")
+      }
+      if (submission_category === "") {
+        setCategoryError("Please enter a category.");
+      }
+      if (submission_rating === "") {
+        setRatingError("Please enter a rating.");
+      }
+      setGoodEdit_Status("");
+      setBadEdit_Status("UNSUCCESSFUL: PLEASE FIX THE ERRORS ABOVE.");
+    }
+  }
+
+  function saveData(id, category_id, name, category, rating) {
+    set_saved_id(id);
+    set_saved_category_id(category_id);
+    set_saved_name(name);
+    set_saved_category(category);
+    set_saved_rating(rating);
+  }
+
+  function handleNameChange(event) {
+    set_saved_name(event.target.value);
+  }
+  function handleCategoryChange(event) {
+    set_saved_category(event.target.value);
+  }
+  function handleRatingChange(event) {
+    set_saved_rating(event.target.value);
   }
 
   return (
@@ -26,6 +130,9 @@ function App() {
       <Switch>
 
         <Route path="/" exact={true}>
+          <Helmet>
+            <title>Home | PathPort</title>
+          </Helmet>
           <span className={HomeStyle.body}>
             <div className={HomeStyle.my_main} id="tab-main-vid">
               <video autoPlay loop muted className={HomeStyle.main_video}>
@@ -90,6 +197,9 @@ function App() {
         </Route>
 
         <Route path="/aboutus" exact={true}>
+          <Helmet>
+            <title>About Us | PathPort</title>
+          </Helmet>
 
           <NavBarComponent />
 
@@ -110,20 +220,216 @@ function App() {
 
         </Route>
 
-        <Route path="/browse" exact={true}>
+        <Route path="/browse" exact={true} title="Browse Recommendations!">
+          <Helmet>
+            <title>Browse | PathPort</title>
+          </Helmet>
 
           <NavBarComponent /> 
 
-          <BrowseForm onSubmit={handleSubmit} />
+          <BrowseForm onSubmit={handleBrowseSubmit} />
 
         </Route>
 
         <Route path="/browse_results" exact={true}>
+          <Helmet>
+            <title>Results | PathPort</title>
+          </Helmet>   
+
+          <NavBarComponent />
+
+          <div className={ResultsStyle.my_heading}>
+            <p>Our recommendations</p>
+          </div> 
           
+          <div className="container-fluid">
+
+            <div class="row mb-4" style={{textAlign: "center"}}>
+              <div class="col-12 mt-4">
+                <a href="/browse" role="button" class="btn btn-primary">Search Again!</a>
+              </div> 
+            </div> 
+
+            <div class={ResultsStyle.my_spacing}></div>
+
+            <div class="row">
+              <div class="col-12">
+                We have the following {results.length} recommendation(s) for you:
+              </div> 
+            </div>
+
+            <div class="row row-cols-3" style={{textAlign: "center"}}>
+              {/* For every result, a new col needs to be created */}
+              {results.map((result) => {
+                let id = result.id;
+                let name = result.recommendation;
+                let category = result.category;
+                let category_id = result.category_id;
+                let rating = result.rating;
+
+                return (
+                  <>
+                    <div class="col">
+                      <br></br>
+                      {name}
+                      <br></br>
+                      Category: {category}
+                      <br></br>
+                      Rating: {rating}
+                      <br></br>
+                      <br></br>
+                      
+                      {/* 
+                      <a href="/deleteConfirmation" class="btn btn-outline-danger delete-btn">
+                        Delete
+                      </a> 
+                      */}
+
+                      <DeleteButton category_id={category_id} DeleteID={id} handleDelete={handleDelete} />
+                      <br></br>
+                      <EditButton id={id} category_id={category_id} name={name} category={category} rating={rating} saveData={saveData} />
+
+                      <br></br><br></br>
+                      <hr style={{backgroundColor: 'white'}}></hr>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+
+          </div>
+
+        </Route>
+
+        <Route path="/EditRec" exact={true}>
+          <Helmet>
+            <title>Edit | PathPort</title>
+          </Helmet>
+
+          <NavBarComponent />
+
+          <>
+            <br></br>
+            <br></br>
+            <h2 style={{textAlign: "center"}}>Edit Recommendation</h2>
+            <h6 style={{textAlign: "center"}}>NOTE: THESE CANNOT BE EMPTY.</h6>
+            <br></br>
+            <br></br>
+            <br></br>
+            <form onSubmit={handleUpdateSubmit} style={{width: 80 + "%", marginLeft: "auto", marginRight: "auto" }}>
+              <div class="form-group row">
+                <label for="rec_name" class="col-sm-2 col-form-label">Recommendation Name: </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="rec_name" value={saved_name} onChange={handleNameChange} />
+                  <div id="error" className="text-danger">
+                    {NameError}
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label for="category_name" class="col-sm-2 col-form-label">Category: </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="category_name" value={saved_category} onChange={handleCategoryChange} />
+                  <div id="error" className="text-danger">
+                    {CategoryError}
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="rating_name" class="col-sm-2 col-form-label">Rating: </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="rating_name" value={saved_rating} onChange={handleRatingChange} />
+                  <div id="error" className="text-danger">
+                    {RatingError}
+                  </div>
+                </div>
+              </div>
+
+              {/*               
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0">Category: </legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
+                      <label class="form-check-label" for="gridRadios1">
+                        First radio
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" />
+                      <label class="form-check-label" for="gridRadios2">
+                        Second radio
+                      </label>
+                    </div>
+                    <div class="form-check disabled">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" />
+                      <label class="form-check-label" for="gridRadios3">
+                        Third disabled radio
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="form-group row">
+                <div class="col-sm-2">Checkbox</div>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1" />
+                    <label class="form-check-label" for="gridCheck1">
+                      Example checkbox
+                    </label>
+                  </div>
+                </div>
+              </div>
+              */}
+
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Update!</button>
+                  <br></br>
+                  <br></br>
+                  <div id="error" className="text-warning">
+                    {bad_edit_status}
+                  </div>
+                  <div id="success" className="text-success">
+                    {good_edit_status}
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </>
+        </Route>
+
+        <Route path="/DeleteConfirmation" exact={true}>
+          <Helmet>
+            <title>Confirmation | PathPort</title>
+          </Helmet>
+
+          <NavBarComponent />
+          
+          <br></br>
+          <br></br>
+          <h2 style={{textAlign: "center"}}>Deletion Successful!</h2>
+          <br></br>
+          <a style={{marginLeft: 46 + "%", marginRight: 46 + "%"}} href="/browse" role="button" class="btn btn-primary">Search Again!</a>
+          <br></br>
+          <br></br>
+          <br></br>
         </Route>
 
 
         <Route path="*">
+          <Helmet>
+            <title> Error | PathPort</title>
+          </Helmet>
+
+          <NavBarComponent />
+
           <PageNotFound />
         </Route>
 
