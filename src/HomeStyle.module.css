@@ -1,0 +1,143 @@
+  .my_main {
+		background-color: black;
+		margin-left: auto;
+		margin-right: auto;
+
+    overflow: hidden;
+    position: relative;
+	}
+	.main_video {
+		width: 100%;
+	}
+  .my_caption1 {
+    padding-top: 25%;
+		font-size: 3em;
+
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .my_overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    text-align: center;
+    display: block;
+  }
+
+
+  /*
+  CREDIT FOR TYPEWRITER: https://www.codesdope.com/blog/article/12-creative-css-and-javascript-text-typing-animati/
+  */
+
+  @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+  .body{
+    /*padding: 40px;*/
+    background-color: #121212;  
+    color: white;
+  
+    font-family: "Century Gothic", 'Lato', sans-serif;
+    margin: 0; /*  ADDED  */
+  }
+
+  .my_animated_para {
+    border-right: solid 3px rgba(0,255,0,.75);
+    white-space: nowrap;
+    overflow: hidden;    
+    font-family: 'Source Code Pro', monospace;  
+    font-size: 28px;
+    color: rgba(255,255,255,.70);
+    margin: 0 auto;
+  }
+
+  /* Animation */
+  .my_animated_para {
+    animation: animated-text 4s steps(29,end) 1s 1 normal both,
+               animated-cursor 600ms steps(29,end) infinite;
+  }
+
+  /* text animation */
+
+  @keyframes animated-text{
+    from{width: 0;}
+    to{width: 472px;}
+  }
+
+  /* cursor animations */
+
+  @keyframes animated-cursor{
+    from{border-right-color: rgba(0,255,0,.75);}
+    to{border-right-color: transparent;}
+  }
+
+
+
+  a {
+    text-decoration: none;
+  }
+
+
+  .et_slide {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    height: 100vh;
+    position: relative;
+    background: #eee;
+    text-align: center;
+    /*padding: 0 2em;*/
+  }
+
+  .et_slide h1 {
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 1rem;
+  }
+
+  .et_slide h3 {
+    font-size: 1.3rem;
+    letter-spacing: 0.3rem;
+    /*opacity: 0.6;*/
+  }
+
+  @media (min-width: 800px) {
+    .et_slide h1 {
+      font-size: 3rem;
+    }
+    .et_slide h3 {
+      font-size: 1.3rem;
+    }
+  }
+
+  /****** HOME PAGE ******/
+  .my_pic1 {
+    background-image: url('img/LA/la_1.jpeg');
+    background-size: cover;
+
+    color: white;
+  }
+  .my_pic2 {
+    background-image: url('img/pic1.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    color: white;
+  }
+  .my_pic3 {
+    background-image: url('img/pic2.jpeg');
+    background-size: cover;
+
+    color: white;
+  }

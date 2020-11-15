@@ -1,0 +1,77 @@
+  .my_main {
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+
+    overflow: hidden;
+    position: relative;
+  }
+
+
+  
+  .my_caption1 {
+    padding-top: 25%;
+    font-size: 3em;
+
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .my_overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    text-align: center;
+    display: block;
+  }
+
+  .et_slide {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    height: 100vh;
+    position: relative;
+    background: #eee;
+    text-align: center;
+    /*padding: 0 2em;*/
+  }
+
+  .et_slide h1 {
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 1rem;
+  }
+
+  .et_slide h3 {
+    font-size: 1.3rem;
+    letter-spacing: 0.3rem;
+    /*opacity: 0.6;*/
+  }
+
+  @media (min-width: 800px) {
+    .et_slide h1 {
+      font-size: 3rem;
+    }
+    .et_slide h3 {
+      font-size: 1.3rem;
+    }
+  }
+
+  /****** HOME PAGE ******/
+  .my_pic4 {
+    background-image: url('img/pic3.jpeg');
+    background-size: cover;
+
+    color: white;
+  }

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+.my_heading {
+  padding-top: 75px;
+  display: flex;
+  text-align: center;
+}
+.browseText {
+  font-family: 'Source Code Pro', monospace;  
+  font-size: 28pt;
+  color: lightgray;
+  margin: 0 auto;
+}
+.my_spacing {
+  margin-top: 150px;
+}
+
+body {
+  background-color: #121212;  
+}
+form {
+  color: white;
+}
