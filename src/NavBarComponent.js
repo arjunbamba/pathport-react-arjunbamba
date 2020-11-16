@@ -50,13 +50,13 @@ export default function NavBarComponent() {
                 </li>
 
                 <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" 
+                  <button className="nav-link dropdown-toggle" 
                   onMouseOver={ (e)=>{ setLink3Color({backgroundColor:'white', color:'black'}) } }
                   onMouseOut={ (e)=>{ setLink3Color({backgroundColor:'black', color:'darkgray'}) } }
-                  style={{backgroundColor: link3Color.backgroundColor, color: link3Color.color, transition:'all 0.5s ease'}}
-                  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+                  style={{backgroundColor: link3Color.backgroundColor, color: link3Color.color, transition:'all 0.5s ease', border: 0}}
+                  id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
                     About Us 
-                  </a>
+                  </button>
                   
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown" style={{backgroundColor: 'black'}}>
                     <li>
@@ -82,13 +82,13 @@ export default function NavBarComponent() {
                 </li>
 
                 <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" 
+                  <button className="nav-link dropdown-toggle" 
                   onMouseOver={ (e)=>{ setLink6Color({backgroundColor:'white', color:'black'}) } }
                   onMouseOut={ (e)=>{ setLink6Color({backgroundColor:'black', color:'darkgray'}) } }
-                  style={{backgroundColor: link6Color.backgroundColor, color: link6Color.color, transition:'all 0.5s ease'}}
-                  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+                  style={{backgroundColor: link6Color.backgroundColor, color: link6Color.color, transition:'all 0.5s ease', border: 0}}
+                  id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
                     Explore 
-                  </a>
+                  </button>
                   
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown" style={{backgroundColor: 'black'}}>
                     <li>
