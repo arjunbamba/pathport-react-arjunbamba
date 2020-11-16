@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import BrowseStyle from './BrowseStyle.module.css';
 
@@ -22,32 +22,32 @@ export default function BrowseForm({onSubmit}) {
     return (
         <>
 
-          <div class={BrowseStyle.my_heading}>
+          <div className={BrowseStyle.my_heading}>
             <p className={BrowseStyle.browseText}>Browse our recommendations!</p>
           </div> 
 
-          <div class={BrowseStyle.my_spacing}></div>
+          <div className={BrowseStyle.my_spacing}></div>
 
-          <div class="container">
+          <div className="container">
 
-            <form onSubmit={handleSubmit} method="GET" class="mt-3">
+            <form onSubmit={handleSubmit} method="GET" className="mt-3">
 
-              <div class="form-group row">
-                <label for="category-id" class="col-sm-3 col-form-label text-sm-right">Category:</label>
-                <div class="col-sm-7">
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox3" value="1" checked />Outdoors
+              <div className="form-group row">
+                <label htmlFor="category-id" className="col-sm-3 col-form-label text-sm-right">Category:</label>
+                <div className="col-sm-7">
+                  <div className="form-check form-check-inline">
+                    <label className="form-check-label">
+                      <input className="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox3" value="1" role="OutdoorRadio" defaultChecked />Outdoors
                     </label>
                   </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox1" value="2" />Art & Culture
+                  <div className="form-check form-check-inline">
+                    <label className="form-check-label">
+                      <input className="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox1" value="2" role="ArtRadio" />Art & Culture
                     </label>
                   </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox2" value="3" />Music
+                  <div className="form-check form-check-inline">
+                    <label className="form-check-label">
+                      <input className="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox2" value="3" role="MusicRadio" />Music
                     </label>
                   </div>
                   {/*                   
@@ -92,11 +92,12 @@ export default function BrowseForm({onSubmit}) {
 
               <br />
 
-              <div class="form-group row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-7">
-                  <button type="submit" class="btn btn-primary">Browse</button>
-                  <button type="reset" class="btn btn-light">Reset</button>
+              <div className="form-group row">
+                <div className="col-sm-3"></div>
+                <div className="col-sm-7">
+                  <button type="submit" role="submit" className="btn btn-primary">Browse</button>
+                  <br></br><br></br>
+                  <button type="reset" role="reset" className="btn btn-light">Reset</button>
                 </div>
               </div> 
 

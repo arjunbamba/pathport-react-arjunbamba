@@ -9,6 +9,10 @@ export function fetchRecs(category) {
 export function deleteRec(category_id, DeleteID) {
     return fetch(`/api/${category_id}/${DeleteID}`, {
         method: "DELETE",
+    })
+    .then((response) => {
+        console.log(response);
+        return response.json;
     });
 }
 
@@ -24,26 +28,15 @@ export function editRec(updated_Object, saved_category_id, saved_id) {
     return response.json();
   });
 }
-  
-// export function fetchFollow(id) {
-//     return fetch(`/api/following/${id}`).then((response) => {
-//         if (response.status >= 400) {
-//             return Promise.reject(
-//                 `There was an error requesting the issue with and id of ${id}`
-//             );
-//         }
-//         return response.json();
-//     });
-// }
 
-// export function saveFollow(data) {
-//     return fetch("/api/following", {
-//         method: "post",
-//         body: JSON.stringify(data),
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//     }).then((response) => {
-//         return response.json();
-//     });
-// }
+export function saveRec(data, categoryId) {
+    return fetch(`/api/${categoryId}`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then((response) => {
+        return response.json();
+    });
+}

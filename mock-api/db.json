@@ -90,6 +90,20 @@
       "recommendation": "Huntington Desert Garden",
       "category": "Outdoors",
       "rating": "Okay"
+    },
+    {
+      "recommendation": "Chipotle",
+      "category_id": 1,
+      "rating": "Awesome",
+      "id": 14,
+      "category": "Outdoors"
+    },
+    {
+      "category_id": 1,
+      "recommendation": "Ski Resort",
+      "category": "Outdoors",
+      "rating": "Okay",
+      "id": 15
     }
   ],
   "2": [
@@ -227,6 +241,13 @@
       "recommendation": "The Hollywood Museum",
       "category": "Music",
       "rating": "Good"
+    },
+    {
+      "category_id": 3,
+      "recommendation": "The Forum",
+      "category": "Music",
+      "rating": "Awesome",
+      "id": 8
     }
   ]
 }

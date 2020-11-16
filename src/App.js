@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 // *****  THIRD PARTY REACT LIBRARY  *****/
 // ***** SOURCE: https://medium.com/@adolf.schmuck/how-to-customize-the-title-of-any-page-in-react-45ef14d2a695  *****/
@@ -12,13 +12,14 @@ import ResultsStyle from './ResultsStyle.module.css';
 import NavBarComponent from "./NavBarComponent"; 
 
 import BrowseForm from "./BrowseForm";
+import CreateRec from "./CreateRec";
 import PageNotFound from "./PageNotFound";
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
 
-import { BrowserRouter as Router, Switch, Route, Link, NavLink, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route /*, Link, NavLink, Redirect, useHistory*/ } from "react-router-dom";
 
-import { fetchRecs, deleteRec, editRec } from "./api";
+import { fetchRecs, deleteRec, editRec, saveRec } from "./api";
 
 function App() {
   // const history = useHistory();
@@ -125,6 +126,28 @@ function App() {
     set_saved_rating(event.target.value);
   }
 
+  function createRec(recommendation, categoryId, rating) {
+    let category_name = "";
+    if (categoryId === 1) {
+      category_name = "Outdoors";
+    }
+    if (categoryId === 2) {
+      category_name = "Arts & Culture";
+    }
+    if (categoryId === 3) {
+      category_name = "Music";
+    }
+    saveRec({
+      category_id: categoryId,
+      recommendation: recommendation,
+      category: category_name,
+      rating: rating,
+    }, categoryId).then((newRec) => {
+      // setIssues(issues.concat(newIssue));
+      console.log(newRec)
+    });
+  }
+
   return (
     <Router> 
       <Switch>
@@ -169,6 +192,35 @@ function App() {
                       LEARN MORE
                     </button>
                   </a>
+
+                  {/* <!-- Button trigger modal --> */}
+                  <button type="button" className="btn btn-dark btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter">
+                    View Credits
+                  </button>
+
+                  {/* <!-- Modal --> */}
+                  <div className="modal fade" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style={{color: "black"}}>
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="exampleModalLongTitle"><strong>Credits</strong></h5>
+                          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div className="modal-body" style={{fontSize: 12 + "pt"}}>
+                          <strong>Created by Arjun Bamba</strong>
+                          <br></br>
+                          <strong>Special Thanks to the Coolest Professor Ever: David Tang</strong>
+                        </div>
+                        <div className="modal-footer">
+                          <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                          {/* <button type="button" className="btn btn-primary">Save changes</button> */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 
@@ -244,21 +296,21 @@ function App() {
           
           <div className="container-fluid">
 
-            <div class="row mb-4" style={{textAlign: "center"}}>
-              <div class="col-12 mt-4">
-                <a href="/browse" role="button" class="btn btn-primary">Search Again!</a>
+            <div className="row mb-4" style={{textAlign: "center"}}>
+              <div className="col-12 mt-4">
+                <a href="/browse" role="button" className="btn btn-primary">Search Again!</a>
               </div> 
             </div> 
 
-            <div class={ResultsStyle.my_spacing}></div>
+            <div className={ResultsStyle.my_spacing}></div>
 
-            <div class="row">
-              <div class="col-12">
+            <div className="row">
+              <div className="col-12">
                 We have the following {results.length} recommendation(s) for you:
               </div> 
             </div>
 
-            <div class="row row-cols-3" style={{textAlign: "center"}}>
+            <div className="row row-cols-3" style={{textAlign: "center"}}>
               {/* For every result, a new col needs to be created */}
               {results.map((result) => {
                 let id = result.id;
@@ -269,7 +321,7 @@ function App() {
 
                 return (
                   <>
-                    <div class="col">
+                    <div className="col">
                       <br></br>
                       {name}
                       <br></br>
@@ -280,7 +332,7 @@ function App() {
                       <br></br>
                       
                       {/* 
-                      <a href="/deleteConfirmation" class="btn btn-outline-danger delete-btn">
+                      <a href="/deleteConfirmation" className="btn btn-outline-danger delete-btn">
                         Delete
                       </a> 
                       */}
@@ -317,30 +369,30 @@ function App() {
             <br></br>
             <br></br>
             <form onSubmit={handleUpdateSubmit} style={{width: 80 + "%", marginLeft: "auto", marginRight: "auto" }}>
-              <div class="form-group row">
-                <label for="rec_name" class="col-sm-2 col-form-label">Recommendation Name: </label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="rec_name" value={saved_name} onChange={handleNameChange} />
+              <div className="form-group row">
+                <label for="rec_name" className="col-sm-2 col-form-label">Recommendation Name: </label>
+                <div className="col-sm-10">
+                  <input type="text" className="form-control" id="rec_name" value={saved_name} onChange={handleNameChange} />
                   <div id="error" className="text-danger">
                     {NameError}
                   </div>
                 </div>
               </div>
               
-              <div class="form-group row">
-                <label for="category_name" class="col-sm-2 col-form-label">Category: </label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="category_name" value={saved_category} onChange={handleCategoryChange} />
+              <div className="form-group row">
+                <label for="category_name" className="col-sm-2 col-form-label">Category: </label>
+                <div className="col-sm-10">
+                  <input type="text" className="form-control" id="category_name" value={saved_category} onChange={handleCategoryChange} />
                   <div id="error" className="text-danger">
                     {CategoryError}
                   </div>
                 </div>
               </div>
 
-              <div class="form-group row">
-                <label for="rating_name" class="col-sm-2 col-form-label">Rating: </label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="rating_name" value={saved_rating} onChange={handleRatingChange} />
+              <div className="form-group row">
+                <label for="rating_name" className="col-sm-2 col-form-label">Rating: </label>
+                <div className="col-sm-10">
+                  <input type="text" className="form-control" id="rating_name" value={saved_rating} onChange={handleRatingChange} />
                   <div id="error" className="text-danger">
                     {RatingError}
                   </div>
@@ -348,25 +400,25 @@ function App() {
               </div>
 
               {/*               
-              <fieldset class="form-group">
-                <div class="row">
-                  <legend class="col-form-label col-sm-2 pt-0">Category: </legend>
-                  <div class="col-sm-10">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
-                      <label class="form-check-label" for="gridRadios1">
+              <fieldset className="form-group">
+                <div className="row">
+                  <legend className="col-form-label col-sm-2 pt-0">Category: </legend>
+                  <div className="col-sm-10">
+                    <div className="form-check">
+                      <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
+                      <label className="form-check-label" for="gridRadios1">
                         First radio
                       </label>
                     </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" />
-                      <label class="form-check-label" for="gridRadios2">
+                    <div className="form-check">
+                      <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" />
+                      <label className="form-check-label" for="gridRadios2">
                         Second radio
                       </label>
                     </div>
-                    <div class="form-check disabled">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" />
-                      <label class="form-check-label" for="gridRadios3">
+                    <div className="form-check disabled">
+                      <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" />
+                      <label className="form-check-label" for="gridRadios3">
                         Third disabled radio
                       </label>
                     </div>
@@ -374,12 +426,12 @@ function App() {
                 </div>
               </fieldset>
 
-              <div class="form-group row">
-                <div class="col-sm-2">Checkbox</div>
-                <div class="col-sm-10">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck1" />
-                    <label class="form-check-label" for="gridCheck1">
+              <div className="form-group row">
+                <div className="col-sm-2">Checkbox</div>
+                <div className="col-sm-10">
+                  <div claclassNamess="form-check">
+                    <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                    <label className="form-check-label" for="gridCheck1">
                       Example checkbox
                     </label>
                   </div>
@@ -387,9 +439,9 @@ function App() {
               </div>
               */}
 
-              <div class="form-group row">
-                <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Update!</button>
+              <div className="form-group row">
+                <div className="col-sm-10">
+                  <button type="submit" className="btn btn-primary">Update!</button>
                   <br></br>
                   <br></br>
                   <div id="error" className="text-warning">
@@ -405,6 +457,16 @@ function App() {
           </>
         </Route>
 
+        <Route path="/CreateRec" exact={true}>
+          <Helmet>
+            <title>Create Recommendation | PathPort</title>
+          </Helmet>
+
+          <NavBarComponent />
+
+          <CreateRec createRec={createRec} />
+        </Route>
+
         <Route path="/DeleteConfirmation" exact={true}>
           <Helmet>
             <title>Confirmation | PathPort</title>
@@ -416,7 +478,7 @@ function App() {
           <br></br>
           <h2 style={{textAlign: "center"}}>Deletion Successful!</h2>
           <br></br>
-          <a style={{marginLeft: 46 + "%", marginRight: 46 + "%"}} href="/browse" role="button" class="btn btn-primary">Search Again!</a>
+          <a style={{marginLeft: 46 + "%", marginRight: 46 + "%"}} href="/browse" role="button" className="btn btn-primary">Search Again!</a>
           <br></br>
           <br></br>
           <br></br>

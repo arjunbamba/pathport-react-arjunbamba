@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 
-// import { fetchRecs } from "./api";
-
 import { useHistory } from "react-router-dom";
 
 export default function EditButton({id, category_id, name, category, rating, saveData}) 
