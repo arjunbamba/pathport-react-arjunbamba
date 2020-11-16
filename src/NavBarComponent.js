@@ -54,7 +54,7 @@ export default function NavBarComponent() {
                   onMouseOver={ (e)=>{ setLink3Color({backgroundColor:'white', color:'black'}) } }
                   onMouseOut={ (e)=>{ setLink3Color({backgroundColor:'black', color:'darkgray'}) } }
                   style={{backgroundColor: link3Color.backgroundColor, color: link3Color.color, transition:'all 0.5s ease'}}
-                  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+                  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
                     About Us 
                   </a>
                   
@@ -86,7 +86,7 @@ export default function NavBarComponent() {
                   onMouseOver={ (e)=>{ setLink6Color({backgroundColor:'white', color:'black'}) } }
                   onMouseOut={ (e)=>{ setLink6Color({backgroundColor:'black', color:'darkgray'}) } }
                   style={{backgroundColor: link6Color.backgroundColor, color: link6Color.color, transition:'all 0.5s ease'}}
-                  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+                  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
                     Explore 
                   </a>
                   
