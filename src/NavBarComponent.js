@@ -20,7 +20,7 @@ export default function NavBarComponent() {
           {/* <nav className="navbar navbar-expand-lg navbar-dark bg-dark"> */}
           <nav className="navbar sticky-top navbar-expand-lg navbar-dark" style={{backgroundColor: 'black'}}>
 
-            <a className="navbar-brand" href="/#tab-main-vid" role="TitleLink"><b>PATH</b>PORT</a>
+            <a className="navbar-brand" href="/#tab-main-vid">PATHPORT</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -31,7 +31,6 @@ export default function NavBarComponent() {
 
                 <li className="nav-item active">
                   <a className="nav-link" 
-                  role="HomeLink"
                   onMouseOver={ (e)=>{ setLink1Color({backgroundColor:'white', color:'black'}) } }
                   onMouseOut={ (e)=>{ setLink1Color({backgroundColor:'black', color:'darkgray'}) } }
                   style={{backgroundColor: link1Color.backgroundColor, color: link1Color.color, transition:'all 0.5s ease'}}
@@ -42,7 +41,6 @@ export default function NavBarComponent() {
 
                 <li className="nav-item">
                   <a className="nav-link inactive-menu" 
-                  role="WelcomeTab"
                   onMouseOver={ (e)=>{ setLink2Color({backgroundColor:'white', color:'black'}) } } 
                   onMouseOut={ (e)=>{ setLink2Color({backgroundColor:'black', color:'darkgray'}) } }
                   style={{backgroundColor: link2Color.backgroundColor, color: link2Color.color, transition:'all 0.5s ease'}}
@@ -53,7 +51,6 @@ export default function NavBarComponent() {
 
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" 
-                  role="AboutUsDropdown"
                   onMouseOver={ (e)=>{ setLink3Color({backgroundColor:'white', color:'black'}) } }
                   onMouseOut={ (e)=>{ setLink3Color({backgroundColor:'black', color:'darkgray'}) } }
                   style={{backgroundColor: link3Color.backgroundColor, color: link3Color.color, transition:'all 0.5s ease'}}
@@ -64,7 +61,6 @@ export default function NavBarComponent() {
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown" style={{backgroundColor: 'black'}}>
                     <li>
                       <a className="dropdown-item" 
-                      role="AboutUsTab"
                       onMouseOver={ (e)=>{ setLink4Color({backgroundColor:'white', color:'black'}) } }
                       onMouseOut={ (e)=>{ setLink4Color({backgroundColor:'black', color:'darkgray'}) } }
                       style={{backgroundColor: link4Color.backgroundColor, color: link4Color.color, transition:'all 0.5s ease'}}
@@ -75,7 +71,6 @@ export default function NavBarComponent() {
 
                     <li>
                       <a className="dropdown-item" 
-                      role="AboutUsLink"
                       onMouseOver={ (e)=>{ setLink5Color({backgroundColor:'white', color:'black'}) } }
                       onMouseOut={ (e)=>{ setLink5Color({backgroundColor:'black', color:'darkgray'}) } }
                       style={{backgroundColor: link5Color.backgroundColor, color: link5Color.color, transition:'all 0.5s ease'}}
@@ -88,7 +83,6 @@ export default function NavBarComponent() {
 
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" 
-                  role="ExploreDropdown"
                   onMouseOver={ (e)=>{ setLink6Color({backgroundColor:'white', color:'black'}) } }
                   onMouseOut={ (e)=>{ setLink6Color({backgroundColor:'black', color:'darkgray'}) } }
                   style={{backgroundColor: link6Color.backgroundColor, color: link6Color.color, transition:'all 0.5s ease'}}
@@ -99,7 +93,6 @@ export default function NavBarComponent() {
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown" style={{backgroundColor: 'black'}}>
                     <li>
                       <a className="dropdown-item" 
-                      role="AdventureTab"
                       onMouseOver={ (e)=>{ setLink7Color({backgroundColor:'white', color:'black'}) } }
                       onMouseOut={ (e)=>{ setLink7Color({backgroundColor:'black', color:'darkgray'}) } }
                       style={{backgroundColor: link7Color.backgroundColor, color: link7Color.color, transition:'all 0.5s ease'}}
@@ -110,7 +103,6 @@ export default function NavBarComponent() {
 
                     <li>
                       <a className="dropdown-item" 
-                      role="BrowseLink"
                       onMouseOver={ (e)=>{ setLink8Color({backgroundColor:'white', color:'black'}) } }
                       onMouseOut={ (e)=>{ setLink8Color({backgroundColor:'black', color:'darkgray'}) } }
                       style={{backgroundColor: link8Color.backgroundColor, color: link8Color.color, transition:'all 0.5s ease'}} 
@@ -121,7 +113,6 @@ export default function NavBarComponent() {
 
                     <li>
                       <a className="dropdown-item" 
-                      role="CreateLink"
                       onMouseOver={ (e)=>{ setLink9Color({backgroundColor:'white', color:'black'}) } }
                       onMouseOut={ (e)=>{ setLink9Color({backgroundColor:'black', color:'darkgray'}) } }
                       style={{backgroundColor: link9Color.backgroundColor, color: link9Color.color, transition:'all 0.5s ease'}} 

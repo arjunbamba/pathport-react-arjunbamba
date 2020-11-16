@@ -37,17 +37,17 @@ export default function BrowseForm({onSubmit}) {
                 <div className="col-sm-7">
                   <div className="form-check form-check-inline">
                     <label className="form-check-label">
-                      <input className="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox3" value="1" role="OutdoorRadio" defaultChecked />Outdoors
+                      <input className="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox3" value="1" defaultChecked />Outdoors
                     </label>
                   </div>
                   <div className="form-check form-check-inline">
                     <label className="form-check-label">
-                      <input className="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox1" value="2" role="ArtRadio" />Art & Culture
+                      <input className="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox1" value="2" />Art & Culture
                     </label>
                   </div>
                   <div className="form-check form-check-inline">
                     <label className="form-check-label">
-                      <input className="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox2" value="3" role="MusicRadio" />Music
+                      <input className="form-check-input mr-2" type="radio" onClick={handleClick} name="category" id="inlineCheckbox2" value="3" />Music
                     </label>
                   </div>
                   {/*                   
@@ -95,9 +95,9 @@ export default function BrowseForm({onSubmit}) {
               <div className="form-group row">
                 <div className="col-sm-3"></div>
                 <div className="col-sm-7">
-                  <button type="submit" role="submit" className="btn btn-primary">Browse</button>
+                  <button type="submit" className="btn btn-primary">Browse</button>
                   <br></br><br></br>
-                  <button type="reset" role="reset" className="btn btn-light">Reset</button>
+                  <button type="reset" className="btn btn-light">Reset</button>
                 </div>
               </div> 
 

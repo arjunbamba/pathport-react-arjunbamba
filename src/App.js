@@ -370,7 +370,7 @@ function App() {
             <br></br>
             <form onSubmit={handleUpdateSubmit} style={{width: 80 + "%", marginLeft: "auto", marginRight: "auto" }}>
               <div className="form-group row">
-                <label for="rec_name" className="col-sm-2 col-form-label">Recommendation Name: </label>
+                <label htmlFor="rec_name" className="col-sm-2 col-form-label">Recommendation Name: </label>
                 <div className="col-sm-10">
                   <input type="text" className="form-control" id="rec_name" value={saved_name} onChange={handleNameChange} />
                   <div id="error" className="text-danger">
@@ -380,7 +380,7 @@ function App() {
               </div>
               
               <div className="form-group row">
-                <label for="category_name" className="col-sm-2 col-form-label">Category: </label>
+                <label htmlFor="category_name" className="col-sm-2 col-form-label">Category: </label>
                 <div className="col-sm-10">
                   <input type="text" className="form-control" id="category_name" value={saved_category} onChange={handleCategoryChange} />
                   <div id="error" className="text-danger">
@@ -390,7 +390,7 @@ function App() {
               </div>
 
               <div className="form-group row">
-                <label for="rating_name" className="col-sm-2 col-form-label">Rating: </label>
+                <label htmlFor="rating_name" className="col-sm-2 col-form-label">Rating: </label>
                 <div className="col-sm-10">
                   <input type="text" className="form-control" id="rating_name" value={saved_rating} onChange={handleRatingChange} />
                   <div id="error" className="text-danger">

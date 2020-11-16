@@ -1,9 +1,7 @@
 import React from "react";
 import CreateForm from "./CreateForm";
-import { useHistory } from "react-router-dom";
 
 export default function CreateRec({ /*labels,*/ createRec }) {
-  const history = useHistory();
 
   function handleSubmit(recommendation, categoryId, rating) {
     createRec(recommendation, categoryId, rating);

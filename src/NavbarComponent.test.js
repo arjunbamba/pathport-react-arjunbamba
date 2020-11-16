@@ -11,109 +11,135 @@ import React from "react";
 import { getAllByRole, getAllByText, render, fireEvent, getByDisplayValue } from "@testing-library/react";
 import NavBarComponent from "./NavBarComponent";
 
-test("rendering Title Link in the navigation bar", () => {
+test("rendering PATHPORT in the navigation bar", () => {
   // Arrange, Act, Assert (AAA)
   // Arrange: Setting up necessary variables
 
   // Act: Thing we are testing
-  const {getByRole} = render(
+  const {getByText} = render(
     <NavBarComponent /> 
   );    
 
   // Assert: checking if meeting expectation - also called expectation sometimes
-  expect(getByRole('TitleLink')).toBeTruthy(); 
+  expect(getByText('PATHPORT')).toBeInTheDocument(); 
 });
 
-test("rendering Home Link in the navigation bar", () => {
+test("rendering Home in the navigation bar", () => {
   // Arrange, Act, Assert (AAA)
   // Arrange: Setting up necessary variables
 
   // Act: Thing we are testing
-  const {getByRole} = render(
+  const {getByText} = render(
     <NavBarComponent />
   );    
 
   // Assert: checking if meeting expectation - also called expectation sometimes
-  expect(getByRole('HomeLink')).toBeTruthy(); 
+  expect(getByText('Home')).toBeInTheDocument();  
 });
 
-test("rendering Welcome Tab in the navigation bar", () => {
+test("rendering Welcome in the navigation bar", () => {
   // Arrange, Act, Assert (AAA)
   // Arrange: Setting up necessary variables
 
   // Act: Thing we are testing
-  const {getByRole} = render(
+  const {getByText} = render(
     <NavBarComponent />
   );    
 
   // Assert: checking if meeting expectation - also called expectation sometimes
-  expect(getByRole('WelcomeTab')).toBeTruthy(); 
+  expect(getByText('Welcome')).toBeInTheDocument(); 
 });
 
-test("rendering Our Start Tab in the navigation bar", () => {
+test("rendering About Us in the navigation bar", () => {
   // Arrange, Act, Assert (AAA)
   // Arrange: Setting up necessary variables
 
   // Act: Thing we are testing
-  const {getByRole} = render(
+  const {getByText} = render(
     <NavBarComponent />
   );    
 
   // Assert: checking if meeting expectation - also called expectation sometimes
-  expect(getByRole('AboutUsTab')).toBeTruthy(); 
+  expect(getByText('About Us')).toBeInTheDocument(); 
 });
 
-test("rendering Learn More Link in the navigation bar", () => {
+test("rendering Our Start in the navigation bar", () => {
   // Arrange, Act, Assert (AAA)
   // Arrange: Setting up necessary variables
 
   // Act: Thing we are testing
-  const {getByRole} = render(
+  const {getByText} = render(
     <NavBarComponent />
   );    
 
   // Assert: checking if meeting expectation - also called expectation sometimes
-  expect(getByRole('AboutUsLink')).toBeTruthy(); 
+  expect(getByText('Our Start')).toBeInTheDocument(); 
 });
 
-test("rendering Adventure Tab in the navigation bar", () => {
+test("rendering Learn More in the navigation bar", () => {
   // Arrange, Act, Assert (AAA)
   // Arrange: Setting up necessary variables
 
   // Act: Thing we are testing
-  const {getByRole} = render(
+  const {getByText} = render(
     <NavBarComponent />
   );    
 
   // Assert: checking if meeting expectation - also called expectation sometimes
-  expect(getByRole('AdventureTab')).toBeTruthy(); 
+  expect(getByText('Learn More')).toBeInTheDocument(); 
 });
 
-test("rendering Browse Link in the navigation bar", () => {
+test("rendering Explore in the navigation bar", () => {
   // Arrange, Act, Assert (AAA)
   // Arrange: Setting up necessary variables
 
   // Act: Thing we are testing
-  const {getByRole} = render(
+  const {getByText} = render(
     <NavBarComponent />
   );    
 
   // Assert: checking if meeting expectation - also called expectation sometimes
-  expect(getByRole('BrowseLink')).toBeTruthy(); 
+  expect(getByText('Explore')).toBeInTheDocument(); 
 });
 
-test("rendering Create Link in the navigation bar", () => {
+test("rendering Adventure at Heart in the navigation bar", () => {
   // Arrange, Act, Assert (AAA)
   // Arrange: Setting up necessary variables
 
   // Act: Thing we are testing
-  const {getByRole} = render(
+  const {getByText} = render(
     <NavBarComponent />
   );    
 
   // Assert: checking if meeting expectation - also called expectation sometimes
-  expect(getByRole('CreateLink')).toBeTruthy(); 
+  expect(getByText('Adventure at Heart')).toBeInTheDocument(); 
 });
+
+test("rendering Browse in the navigation bar", () => {
+    // Arrange, Act, Assert (AAA)
+    // Arrange: Setting up necessary variables
+  
+    // Act: Thing we are testing
+    const {getByText} = render(
+      <NavBarComponent />
+    );    
+  
+    // Assert: checking if meeting expectation - also called expectation sometimes
+    expect(getByText('Browse')).toBeInTheDocument(); 
+  });
+
+  test("rendering Create Recommendation in the navigation bar", () => {
+    // Arrange, Act, Assert (AAA)
+    // Arrange: Setting up necessary variables
+  
+    // Act: Thing we are testing
+    const {getByText} = render(
+      <NavBarComponent />
+    );    
+  
+    // Assert: checking if meeting expectation - also called expectation sometimes
+    expect(getByText('Create Recommendation')).toBeInTheDocument(); 
+  });
 
 
 
